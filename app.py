@@ -9,6 +9,35 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Custom CSS for header color and styling
+st.markdown("""
+<style>
+    /* Change header gradient color */
+    .stApp header {
+        background: linear-gradient(90deg, #0d7377 0%, #14a3a8 50%, #0d7377 100%) !important;
+    }
+    .stApp header a, .stApp header button {
+        color: #e0f7fa !important;
+    }
+    /* Footer styling */
+    .footer {
+        text-align: center;
+        padding: 1rem 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+    .footer a {
+        color: #0d7377;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .footer a:hover {
+        color: #14a3a8;
+        text-decoration: underline;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Sidebar
 with st.sidebar:
     st.markdown("## 📖 About This App")
@@ -187,6 +216,11 @@ with col2:
                     st.error(f"❌ Prediction failed: {e}")
 
 # Footer
+st.markdown("---")
+st.markdown(
+    '<div class="footer">Built by <a href="https://github.com/junaidnawaz1" target="_blank">Junaid Nawaz</a> 🚀</div>',
+    unsafe_allow_html=True,
+)
 st.markdown("---")
 with st.expander("ℹ️ How This Works"):
     st.markdown("""
